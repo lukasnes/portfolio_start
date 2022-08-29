@@ -46,15 +46,15 @@ class Goober {
             return
         }
 
-        this.widthScale -= 0.01
-        this.heightScale -= 0.01
+        this.widthScale -= 0.015
+        this.heightScale -= 0.015
     }
     //Redrawing the images every frame of their existence in the list, moving them, and making sure they bounce off the walls of the screen
     update = () => {
         if(this.xPosition + this.image.width > innerWidth || this.xPosition - this.image.width < 0) {
             this.xVelocity *= -1
         }
-        if(this.yPosition + this.image.height > innerHeight || this.yPosition - this.image.height < 0) {
+        if(this.yPosition + this.image.height > innerHeight || this.yPosition - this.image.height < 200 - (this.image.height / 2)) {
             this.yVelocity *= -1
         }
 
@@ -144,12 +144,14 @@ let gooberList = new GooberLinkedList()
 const freshGoobers = () => {
     let image = new Image()
     image.src = goobers[Math.floor(Math.random() * goobers.length)]
-    let xPosition = (Math.random() * (innerWidth - image.width) + image.width)
-    let yPosition = (Math.random() * (innerHeight - image.height) + image.height)
-    let xVelocity = ((Math.random() - 0.5) * 10)
-    let yVelocity = ((Math.random() - 0.5) * 10)
+
+    xOrigin = 0 + image.width
+    yOrigin = innerHeight - image.height;
+    xVelocity = (Math.random() * 15)
+    yVelocity = ((Math.random() - 1) * 15)
+
     
-    gooberList.addToBack(new GooberNode(new Goober(image,xPosition,yPosition,xVelocity,yVelocity)))
+    gooberList.addToBack(new GooberNode(new Goober(image,xOrigin,yOrigin,xVelocity,yVelocity)))
 }
 
 //Creating an animate function to be called every frame
@@ -174,10 +176,19 @@ const mouseGoobers = (evt) => {
     image.src = goobers[Math.floor(Math.random() * goobers.length)]
     let xPosition = mouse.x
     let yPosition = mouse.y
-    let xVelocity = ((Math.random() - 0.5) * 10)
-    let yVelocity = ((Math.random() - 0.5) * 10)
 
-    gooberList.addToBack(new GooberNode(new Goober(image,xPosition,yPosition,xVelocity,yVelocity)))
+    let xOrigin = 0 + image.width
+    let yOrigin = innerHeight - image.height
+
+    let xDirection = xPosition - xOrigin
+    let yDirection = yPosition - yOrigin
+
+    let vector = Math.sqrt(xDirection**2 + yDirection**2)
+
+    let xVelocity = (xDirection / vector) * 25
+    let yVelocity = (yDirection / vector) * 25
+
+    gooberList.addToBack(new GooberNode(new Goober(image,xOrigin,yOrigin,xVelocity,yVelocity)))
 }
 //Removing excess goobers to reduce CPU strain
 const removeExcess = () => {

@@ -1,0 +1,4 @@
+canvas{
+    z-index: -1;
+    background: radial-gradient(circle at top right,rgba(19,79,85,0.3),rgba(46,31,39));
+}
