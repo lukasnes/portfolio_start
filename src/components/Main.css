@@ -1,14 +1,8 @@
 .main {
     position: absolute;
     right: 0;
-    top: 220px;
-    height: calc(100vh - 220px);
-    width: 600px;
-}
-.separator {
-    position: absolute;
-    left: 0;
-    top: 220px;
-    width: calc(100vh - 220px);
-    transform: rotate(90deg);
+    top: 420px;
+    height: calc(100vh - 420px);
+    width: 400px;
+    border-left: 1px solid var(--white)
 }
