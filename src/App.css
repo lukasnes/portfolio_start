@@ -15,3 +15,12 @@ body {
   top: 0;
   left: 0;
 }
+
+@media (max-width: 600px) {
+  .App {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+  }
+}

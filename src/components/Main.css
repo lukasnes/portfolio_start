@@ -1,8 +1,21 @@
 .main {
     position: absolute;
+    margin-right: 10px;
     right: 0;
-    top: 420px;
-    height: calc(100vh - 420px);
+    top: 320px;
+    height: calc(100vh - 320px);
     width: 400px;
     border-left: 1px solid var(--white)
+}
+
+@media (max-width: 600px) {
+    .main {
+        position: static;
+        height: fit-content;
+    }
+}
+@media (max-height: 600px) {
+    .main {
+        width: 100vw;
+    }
 }

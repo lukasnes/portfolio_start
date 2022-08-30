@@ -33,3 +33,36 @@
     list-style:upper-roman;
     color: var(--white);
 }
+@media (max-width: 600px) {
+    .welcome {
+        font-size: 1em;
+    }
+    .welcome-text {
+        font-size: .75em;
+    }
+    .website-desc {
+        font-size: .75em;
+    }
+    .website-list {
+        font-size: .75em;
+    }
+}
+@media (max-height: 800px) {
+    .home {
+        justify-content: center;
+    }
+    .welcome {
+        font-size: 2em;
+        margin: 0;
+    }
+    .welcome-text {
+        font-size: 1em;
+    }
+    .website-desc {
+        font-size: 1em;
+        margin: 0;
+    }
+    .website-list {
+        font-size: 1em;
+    }
+}

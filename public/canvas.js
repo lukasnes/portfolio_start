@@ -54,7 +54,7 @@ class Goober {
         if(this.xPosition + this.image.width > innerWidth - 400 || this.xPosition - this.image.width < 0) {
             this.xVelocity *= -1
         }
-        if(this.yPosition + this.image.height > innerHeight || this.yPosition - this.image.height < 400 - (this.image.height / 2)) {
+        if(this.yPosition + this.image.height > innerHeight || this.yPosition - this.image.height < 300 - (this.image.height / 2)) {
             this.yVelocity *= -1
         }
 
@@ -199,4 +199,6 @@ const removeExcess = () => {
 
 canvas.addEventListener('mousemove', mouseGoobers)
 console.log(mouse)
-animate()
+if(innerWidth > 600) {
+    animate()
+}
