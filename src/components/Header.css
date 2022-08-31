@@ -51,3 +51,24 @@
         transform: rotate(0deg);
     }
   }
+
+@media (max-width: 1425px) {
+    .me {
+        font-size: 4em;
+    }
+}
+@media (max-width: 1225px) {
+    .me {
+        font-size: 3em;
+    }
+}
+@media (max-width: 1025px) {
+    .me {
+        font-size: 2.5em;
+    }
+}
+@media (max-width: 925px) {
+    .me {
+        font-size: 2em;
+    }
+}

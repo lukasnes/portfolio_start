@@ -35,16 +35,16 @@
 }
 @media (max-width: 600px) {
     .welcome {
-        font-size: 1em;
+        font-size: 2em;
     }
     .welcome-text {
-        font-size: .75em;
+        font-size: 1em;
     }
     .website-desc {
-        font-size: .75em;
+        font-size: 1em;
     }
     .website-list {
-        font-size: .75em;
+        font-size: 1em;
     }
 }
 @media (max-height: 800px) {
