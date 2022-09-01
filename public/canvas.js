@@ -1,7 +1,10 @@
 let canvas = document.querySelector('canvas')
 
-canvas.width = window.innerWidth
-canvas.height = window.innerHeight
+const setDimensions = () => {
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
+}
+setDimensions()
 
 let context = canvas.getContext('2d')
 
@@ -136,6 +139,12 @@ class GooberLinkedList {
             return
         }
     }
+    //Removing excess goobers to reduce CPU strain
+    removeExcess = () => {
+        while(gooberList.size() >= 500) {
+            gooberList.removeFront()
+        }
+    }
 }
 
 let gooberList = new GooberLinkedList()
@@ -164,7 +173,7 @@ const animate = () => {
     }
     console.log(gooberList.size())
     gooberList.drawGoobers()
-    removeExcess()
+    gooberList.removeExcess()
 }
 
 //Setting the mouse position and creating new goobers on mouse move
@@ -190,12 +199,7 @@ const mouseGoobers = (evt) => {
 
     gooberList.addToBack(new GooberNode(new Goober(image,xOrigin,yOrigin,xVelocity,yVelocity)))
 }
-//Removing excess goobers to reduce CPU strain
-const removeExcess = () => {
-    while(gooberList.size() >= 500) {
-        gooberList.removeFront()
-    }
-}
+
 
 canvas.addEventListener('mousemove', mouseGoobers)
 console.log(mouse)

@@ -9,6 +9,6 @@ export default (
         <Route exact path="/skills" />
         <Route exact path="/projects" />
         <Route exact path="/contact" />
-        <Route path="/" />
+        <Route path="/" element={ <Home /> }/>
     </Routes>
 )
